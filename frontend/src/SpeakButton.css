@@ -1,0 +1,82 @@
+.speak-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border: 1.5px solid #087fbd;
+    background: white;
+    color: #087fbd;
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  }
+  
+  .speak-btn:hover {
+    background: #087fbd;
+    color: white;
+    transform: scale(1.06);
+  }
+  
+  .speak-btn:active {
+    transform: scale(0.94);
+  }
+  
+  .speak-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* playing state — animated "sound bars" instead of the speaker icon */
+  
+  .speak-btn.speaking {
+    background: #087fbd;
+    color: white;
+  }
+  
+  .speak-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+  }
+  
+  .speak-bars span {
+    width: 2.5px;
+    background: white;
+    border-radius: 2px;
+    animation: speak-bounce 0.8s ease-in-out infinite;
+  }
+  
+  .speak-bars span:nth-child(1) {
+    height: 40%;
+    animation-delay: 0s;
+  }
+  
+  .speak-bars span:nth-child(2) {
+    height: 100%;
+    animation-delay: 0.15s;
+  }
+  
+  .speak-bars span:nth-child(3) {
+    height: 60%;
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes speak-bounce {
+    0%,
+    100% {
+      transform: scaleY(0.4);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .speak-bars span {
+      animation: none;
+    }
+  }
