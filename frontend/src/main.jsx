@@ -5,14 +5,10 @@ import './index.css'
 import App from './App.jsx'
 import AdminApp from './AdminApp.jsx'
 
-const path = window.location.pathname
-
-const RootApp = path.startsWith('/admin')
-  ? AdminApp
-  : App
+const isAdmin = window.location.pathname.startsWith('/admin')
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RootApp />
+    {isAdmin ? <AdminApp /> : <App />}
   </StrictMode>,
 )
